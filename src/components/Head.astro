@@ -53,16 +53,17 @@ const { title, description, image } = Astro.props
   }
 
   // Apply theme immediately to prevent flash
-  const theme = getStoredTheme();
+  // const theme = getStoredTheme();
+  const theme = 'dim';
   document.documentElement.setAttribute('data-theme', theme);
 
   // Re-apply theme after navigation
   document.addEventListener('astro:after-swap', () => {
-    const currentTheme = getStoredTheme();
-    document.documentElement.setAttribute('data-theme', currentTheme);
+    // const currentTheme = getStoredTheme();
+    document.documentElement.setAttribute('data-theme', theme);
   });
 </script>
-<script>
+<!-- <script>
 	import { themeChange } from 'theme-change'
 	themeChange()
 
@@ -70,4 +71,4 @@ const { title, description, image } = Astro.props
   document.addEventListener('astro:after-swap', () => {
     themeChange(false); // false = don't persist to localStorage
   });
-</script>
+</script> -->
